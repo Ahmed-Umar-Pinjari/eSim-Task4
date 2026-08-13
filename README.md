@@ -95,9 +95,9 @@ The installation script was updated to use the correct source path.
 
 ### Relevant Fix
 
-````bash
+```bash
 tar -xJf "$src_dir/ghdl/$ghdl-source.tar.xz" -C "$HOME"
-````
+```
 
 ### Evidence
 
