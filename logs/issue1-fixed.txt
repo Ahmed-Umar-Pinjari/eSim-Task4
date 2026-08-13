@@ -1,0 +1,186 @@
+Detected Ubuntu Version: 25.04
+Running script: /home/ahmed-umar-pinjari/Downloads/eSim-2.5/install-eSim-scripts/install-eSim-25.04.sh --install
+Enter proxy details if you are connected to internet thorugh proxy
+Is your internet connection behind proxy? (y/n): Install without proxy
+Updating apt index files...................
+Hit:1 https://packages.microsoft.com/repos/code stable InRelease
+Hit:2 http://archive.ubuntu.com/ubuntu plucky InRelease
+Hit:3 https://dl.google.com/linux/chrome-stable/deb stable InRelease
+Hit:4 http://archive.ubuntu.com/ubuntu plucky-updates InRelease
+Hit:5 http://security.ubuntu.com/ubuntu plucky-security InRelease
+Hit:6 http://archive.ubuntu.com/ubuntu plucky-backports InRelease
+Reading package lists...
+Installing Python venv......................
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-venv is already the newest version (3.13.3-1).
+python3-pip is already the newest version (25.0+dfsg-1ubuntu0.2).
+Solving dependencies...
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 2
+Creating virtual environment to isolate packages...
+Starting the virtual env...................
+Upgrading Pip..............................
+Requirement already satisfied: pip in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (26.2.1)
+Installing Xterm...........................
+Reading package lists...
+Building dependency tree...
+Reading state information...
+xterm is already the newest version (397-1ubuntu1).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Psutil..........................
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-psutil is already the newest version (5.9.8-2build3).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing PyQt5...........................
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pyqt5 is already the newest version (5.15.11+dfsg-2).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Matplotlib......................
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-matplotlib is already the newest version (3.8.3-7build1).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Setuptools...................
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-setuptools is already the newest version (75.8.0-1ubuntu1).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+Installing Pip3............................
+
+WARNING: apt does not have a stable CLI interface. Use with caution in scripts.
+
+Reading package lists...
+Building dependency tree...
+Reading state information...
+python3-pip is already the newest version (25.0+dfsg-1ubuntu0.2).
+Solving dependencies...
+Summary:
+  Upgrading: 0, Installing: 0, Removing: 0, Not Upgrading: 2
+Installing Watchdog........................
+Requirement already satisfied: watchdog in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (6.0.0)
+Installing Hdlparse........................
+Collecting https://github.com/hdl/pyhdlparser/tarball/master
+  Using cached master
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Installing Makerchip.......................
+Requirement already satisfied: makerchip-app in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (1.1.6)
+Requirement already satisfied: click in /usr/lib/python3/dist-packages (from makerchip-app) (8.1.8)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from makerchip-app) (2.32.3)
+Requirement already satisfied: sseclient-py in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (from makerchip-app) (1.9.0)
+Requirement already satisfied: chardet>=3.0.2 in /usr/lib/python3/dist-packages (from requests->makerchip-app) (5.2.0)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests->makerchip-app) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests->makerchip-app) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests->makerchip-app) (2025.1.31)
+Installing SandPiper Saas..................
+Requirement already satisfied: sandpiper-saas in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (1.1.0)
+Requirement already satisfied: Path in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (from sandpiper-saas) (17.1.1)
+Collecting argparse (from sandpiper-saas)
+  Using cached argparse-1.4.0-py2.py3-none-any.whl.metadata (2.8 kB)
+Requirement already satisfied: click in /usr/lib/python3/dist-packages (from sandpiper-saas) (8.1.8)
+Requirement already satisfied: requests in /usr/lib/python3/dist-packages (from sandpiper-saas) (2.32.3)
+Requirement already satisfied: chardet>=3.0.2 in /usr/lib/python3/dist-packages (from requests->sandpiper-saas) (5.2.0)
+Requirement already satisfied: idna<4,>=2.5 in /usr/lib/python3/dist-packages (from requests->sandpiper-saas) (3.10)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /usr/lib/python3/dist-packages (from requests->sandpiper-saas) (2.3.0)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/lib/python3/dist-packages (from requests->sandpiper-saas) (2025.1.31)
+Using cached argparse-1.4.0-py2.py3-none-any.whl (23 kB)
+Installing collected packages: argparse
+Successfully installed argparse-1.4.0
+Installing Hdlparse......................
+Requirement already satisfied: hdlparse in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (1.0.7)
+Installing matplotlib................
+Requirement already satisfied: matplotlib in /usr/lib/python3/dist-packages (3.8.3)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/lib/python3/dist-packages (from matplotlib) (1.3.1)
+Requirement already satisfied: cycler>=0.10 in /usr/lib/python3/dist-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/lib/python3/dist-packages (from matplotlib) (4.55.3)
+Requirement already satisfied: kiwisolver>=1.3.1 in /usr/lib/python3/dist-packages (from matplotlib) (1.4.7)
+Requirement already satisfied: numpy<2,>=1.21 in /home/ahmed-umar-pinjari/.esim/env/lib/python3.13/site-packages (from matplotlib) (1.26.4)
+Requirement already satisfied: packaging>=20.0 in /usr/lib/python3/dist-packages (from matplotlib) (24.2)
+Requirement already satisfied: pillow>=8 in /usr/lib/python3/dist-packages (from matplotlib) (11.1.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/lib/python3/dist-packages (from matplotlib) (3.1.2)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/lib/python3/dist-packages (from matplotlib) (2.9.0)
+Installing PyQt5.............
+Requirement already satisfied: PyQt5 in /usr/lib/python3/dist-packages (5.15.11)
+Requirement already satisfied: PyQt5-sip<13,>=12.15 in /usr/lib/python3/dist-packages (from PyQt5) (12.17.0)
+Installing KiCad...........................
+Ubuntu 25.04 detected.
+KiCad 8.0 is already installed.
+Using KiCad from Ubuntu 25.04 official repository.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+kicad is already the newest version (8.0.8+dfsg-1).
+kicad-footprints is already the newest version (8.0.8-1).
+kicad-libraries is already the newest version (8.0.8+dfsg-1).
+kicad-symbols is already the newest version (8.0.8-1).
+kicad-templates is already the newest version (8.0.8-1).
+Solving dependencies...
+0 upgraded, 0 newly installed, 0 to remove and 2 not upgraded.
+KiCad installation completed successfully!
+kicad config folder already exists
+symbol table copied in the directory
+Installing NGHDL...........................
+Archive:  nghdl.zip
+  inflating: nghdl/CONTRIBUTION.md   
+  inflating: nghdl/ghdl-4.1.0.tar.gz  
+  inflating: nghdl/install-nghdl.sh  
+  inflating: nghdl/LICENSE           
+  inflating: nghdl/nghdl-simulator-source.tar.xz  
+  inflating: nghdl/README.md         
+  inflating: nghdl/verilator-4.210.tar.xz  
+  inflating: nghdl/Example/combinational_logic/bin_to_gray/bin_to_gray.vhdl  
+  inflating: nghdl/Example/combinational_logic/counter/decadecounter.vhdl  
+  inflating: nghdl/Example/combinational_logic/counter/updown_counter.vhdl  
+  inflating: nghdl/Example/combinational_logic/counter/up_counter.vhdl  
+  inflating: nghdl/Example/combinational_logic/counter/up_counter_slv.vhdl  
+  inflating: nghdl/Example/combinational_logic/decoder/decoder.vhdl  
+  inflating: nghdl/Example/combinational_logic/full_adder/full_adder_sl.vhdl  
+  inflating: nghdl/Example/combinational_logic/full_adder/full_adder_slv.vhdl  
+  inflating: nghdl/Example/combinational_logic/full_adder/full_adder_sl_slv.vhdl  
+  inflating: nghdl/Example/combinational_logic/full_adder/full_adder_structural.vhdl  
+  inflating: nghdl/Example/combinational_logic/half_adder/half_adder.vhdl  
+  inflating: nghdl/Example/combinational_logic/mux-demux/demux.vhdl  
+  inflating: nghdl/Example/combinational_logic/mux-demux/mux.vhdl  
+  inflating: nghdl/Example/logic_gates/and_gate.vhdl  
+  inflating: nghdl/Example/logic_gates/inverter.vhdl  
+  inflating: nghdl/Example/logic_gates/nand_gate.vhdl  
+  inflating: nghdl/Example/logic_gates/nor_gate.vhdl  
+  inflating: nghdl/Example/logic_gates/or_gate.vhdl  
+  inflating: nghdl/Example/logic_gates/xor_gate.vhdl  
+  inflating: nghdl/Example/PWM/pwmdecrement.vhdl  
+  inflating: nghdl/Example/PWM/pwmincrement.vhdl  
+  inflating: nghdl/install-nghdl-scripts/install-nghdl-22.04.sh  
+  inflating: nghdl/install-nghdl-scripts/install-nghdl-23.04.sh  
+  inflating: nghdl/install-nghdl-scripts/install-nghdl-24.04.sh  
+  inflating: nghdl/src/Appconfig.py  
+  inflating: nghdl/src/createKicadLibrary.py  
+  inflating: nghdl/src/model_generation.py  
+  inflating: nghdl/src/ngspice_ghdl.py  
+  inflating: nghdl/src/ghdlserver/compile.sh  
+  inflating: nghdl/src/ghdlserver/ghdlserver.c  
+  inflating: nghdl/src/ghdlserver/ghdlserver.h  
+  inflating: nghdl/src/ghdlserver/uthash.h  
+  inflating: nghdl/src/ghdlserver/Utility_Package.vhdl  
+  inflating: nghdl/src/ghdlserver/Vhpi_Package.vhdl  
+Detected Ubuntu Version: 
+Unsupported Ubuntu version: 25.04 ()

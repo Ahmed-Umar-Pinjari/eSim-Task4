@@ -1,0 +1,12 @@
+46-        "24.04")
+47-            SCRIPT="$SCRIPT_DIR/install-nghdl-24.04.sh"
+48-            ;;
+49:        "25.04")
+50-            SCRIPT="$SCRIPT_DIR/install-nghdl-25.04.sh"
+51-            ;;
+52-        *)
+53-            echo "Unsupported Ubuntu version: $VERSION_ID ($FULL_VERSION)"
+54-            exit 1
+55-            ;;
+56-    esac
+57-

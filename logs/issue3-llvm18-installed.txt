@@ -1,0 +1,6 @@
+ii  clang-18                                      1:18.1.8-17                                amd64        C, C++ and Objective-C compiler
+ii  llvm-18                                       1:18.1.8-17                                amd64        Modular compiler and toolchain technologies
+ii  llvm-18-dev                                   1:18.1.8-17                                amd64        Modular compiler and toolchain technologies, libraries and headers
+ii  llvm-18-linker-tools                          1:18.1.8-17                                amd64        Modular compiler and toolchain technologies - Plugins
+ii  llvm-18-runtime                               1:18.1.8-17                                amd64        Modular compiler and toolchain technologies, IR interpreter
+ii  llvm-18-tools                                 1:18.1.8-17                                amd64        Modular compiler and toolchain technologies, tools

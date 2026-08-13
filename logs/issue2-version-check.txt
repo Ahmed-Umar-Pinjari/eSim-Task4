@@ -1,0 +1,62 @@
+20-#==========================================================
+21-
+22-
+23-# Function to detect Ubuntu version and full version string
+24-get_ubuntu_version() {
+25:    VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d '"' -f 2)
+26-    FULL_VERSION=$(lsb_release -d | grep -oP '\d+\.\d+\.\d+')
+27-    echo "Detected Ubuntu Version: $FULL_VERSION"
+28-}
+29-
+30-# Function to choose and run the appropriate script
+31-run_version_script() {
+32-    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/install-nghdl-scripts"
+33-    
+34-    # Decide script based on full version
+35:    case $VERSION_ID in
+36-        "22.04")
+37-            if [[ "$FULL_VERSION" == "22.04.4" ]]; then
+38-                SCRIPT="$SCRIPT_DIR/install-nghdl-22.04.sh"
+39-            else
+40-                SCRIPT="$SCRIPT_DIR/install-nghdl-23.04.sh"
+41-            fi
+42-            ;;
+43-        "23.04")
+44-            SCRIPT="$SCRIPT_DIR/install-nghdl-23.04.sh"
+45-            ;;
+46-        "24.04")
+47-            SCRIPT="$SCRIPT_DIR/install-nghdl-24.04.sh"
+48-            ;;
+49-        *)
+50:            echo "Unsupported Ubuntu version: $VERSION_ID ($FULL_VERSION)"
+51-            exit 1
+52-            ;;
+53-    esac
+54-
+55-    # Run the script if found
+56-    if [[ -f "$SCRIPT" ]]; then
+57-        echo "Running script: $SCRIPT $ARGUMENT"
+58-        bash "$SCRIPT" "$ARGUMENT"
+59-    else
+60-        echo "Installation script not found: $SCRIPT"
+61-        exit 1
+62-    fi
+63-}
+64-
+65-# --- Main Execution Starts Here ---
+66-
+67-# Validate argument
+68-if [[ $# -ne 1 ]]; then
+69-    echo "Usage: $0 --install | --uninstall"
+70-    exit 1
+71-fi
+72-
+73-ARGUMENT=$1
+74-if [[ "$ARGUMENT" != "--install" && "$ARGUMENT" != "--uninstall" ]]; then
+75-    echo "Invalid argument: $ARGUMENT"
+76-    echo "Usage: $0 --install | --uninstall"
+77-    exit 1
+78-fi
+79-
+80-get_ubuntu_version
+81-run_version_script

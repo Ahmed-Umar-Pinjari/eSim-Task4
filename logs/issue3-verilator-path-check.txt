@@ -1,0 +1,3 @@
+=== Verilator script syntax check ===
+=== Verilator archive check ===
+-rw-rw-rw- 1 ahmed-umar-pinjari ahmed-umar-pinjari 3.3M Jun 23  2025 nghdl/verilator-4.210.tar.xz

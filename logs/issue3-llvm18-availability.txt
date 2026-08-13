@@ -1,0 +1,18 @@
+llvm-18:
+  Installed: (none)
+  Candidate: 1:18.1.8-17
+  Version table:
+     1:18.1.8-17 500
+        500 http://archive.ubuntu.com/ubuntu plucky/universe amd64 Packages
+llvm-18-dev:
+  Installed: (none)
+  Candidate: 1:18.1.8-17
+  Version table:
+     1:18.1.8-17 500
+        500 http://archive.ubuntu.com/ubuntu plucky/universe amd64 Packages
+clang-18:
+  Installed: (none)
+  Candidate: 1:18.1.8-17
+  Version table:
+     1:18.1.8-17 500
+        500 http://archive.ubuntu.com/ubuntu plucky/universe amd64 Packages

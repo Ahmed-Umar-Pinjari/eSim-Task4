@@ -1,0 +1,190 @@
+mkdir -p "/usr/local"
+mkdir -p "/usr/local/bin"
+mkdir -p "/usr/local/lib"
+mkdir -p "/usr/local/lib/ghdl"
+mkdir -p "/usr/local/include/ghdl"
+VER_DESC=tarball; \
+VER_REF=unknown; \
+VER_HASH=unknown; \
+if test -d ./.git && desc=`cd .; git describe --dirty --long`; then \
+  VER_DESC=`echo $desc | sed -e 's/\([^-]*-g\)/r\1/' -e 's/-/./g' -e 's/^v//g'`; \
+  VER_REF=`cd .; git rev-parse --abbrev-ref HEAD`; \
+  VER_HASH=`cd .; git rev-parse HEAD`; \
+fi; \
+sed \
+  -e "s#@VER@#4.1.0#" \
+  -e "s#@DESC@#${GHDL_VER_DESC:-$VER_DESC}#" \
+  -e "s#@REF@#${GHDL_VER_REF:-$VER_REF}#" \
+  -e "s#@HASH@#${GHDL_VER_HASH:-$VER_HASH}#" \
+  < src/version.in > version.tmp;
+if [ ! -r version.ads ] || ! cmp version.tmp version.ads > /dev/null; then cp version.tmp version.ads; fi
+make -f ./src/ortho/llvm6/Makefile \
+ ortho_srcdir=./src/ortho ortho_exec=ghdl1-llvm \
+ GNATFLAGS="-aI./src -aI./src/vhdl -aI./src/verilog -aI./src/synth -aI./src/grt -aI./src/psl -aI./src/vhdl/translate -aI./src/ghdldrv -aI./src/ortho -aI./src/ortho/llvm6 -aI./src/synth -aI./src/simul -gnat12 -gnaty3befhkmr -g  -gnatwa -gnatwC -gnatf -gnata" \
+ GNATLFLAGS="grt-cstdio.o grt-cdynload.o" \
+ LDFLAGS="" \
+ LLVM_CONFIG="/usr/bin/llvm-config-18" CXX="clang++" \
+ CXXFLAGS=" -g -Wall -g" \
+ GNATMAKE="gnatmake" all
+make[1]: Entering directory '/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0'
+gnatmake -o ghdl1-llvm -aI./src/ortho/llvm6 -aI./src/ortho \
+-aI./src -aI./src/vhdl -aI./src/verilog -aI./src/synth -aI./src/grt -aI./src/psl -aI./src/vhdl/translate -aI./src/ghdldrv -aI./src/ortho -aI./src/ortho/llvm6 -aI./src/synth -aI./src/simul -gnat12 -gnaty3befhkmr -g  -gnatwa -gnatwC -gnatf -gnata ortho_code_main -bargs -E \
+-largs llvm-cbindings.o grt-cstdio.o grt-cdynload.o --LINK=clang++ \
+`/usr/bin/llvm-config-18 --ldflags --libs --system-libs` 
+gnatmake: "ghdl1-llvm" up to date.
+make[1]: Leaving directory '/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0'
+gnatmake -aI./src -aI./src/vhdl -aI./src/verilog -aI./src/synth -aI./src/grt -aI./src/psl -aI./src/vhdl/translate -aI./src/ghdldrv -aI./src/ortho -aI./src/ortho/llvm6 -aI./src/synth -aI./src/simul \
+         -aI./src/ghdldrv -gnat12 -gnaty3befhkmr -g  -gnatwa -gnatwC -gnatf -gnata \
+ ghdl_llvm -bargs -static \
+         -largs  grt-cstdio.o grt-cdynload.o
+gnatmake: "ghdl_llvm" up to date.
+install -m 755 ghdl_llvm /usr/local/bin/ghdl
+install -m 755 ghdl1-llvm /usr/local/bin/ghdl1-llvm
+cd grt && MSYS2_ARG_CONV_EXCL="-aI;-gnatec" gnatmake -c -aI/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt -aI.. \
+  -gnatec/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/grt.adc -gnatdY ghdl_main -g -gnatwa -gnatwC -gnatf -gnatw.X  -cargs  -fPIC
+gnatmake: objects up to date.
+sed -e '/^P /s/P /P NR /' < grt/ghdl_main.ali > grt/ghdl_main-tmp.ali
+mv grt/ghdl_main-tmp.ali grt/ghdl_main.ali
+cd grt && gnatmake -b ghdl_main.ali -bargs -Lgrt_ -o run-bind.adb -n
+x86_64-linux-gnu-gnatbind-14 -Lgrt_ -o run-bind.adb -n -x ghdl_main.ali
+cd grt && MSYS2_ARG_CONV_EXCL="-aI;-gnatec" gnatmake -u -c  -fPIC -gnatec/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/grt.adc -gnatdY -o run-bind.o run-bind.adb
+x86_64-linux-gnu-gcc-14 -c -fPIC -gnatec/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/grt.adc -gnatdY run-bind.adb
+cd grt && MSYS2_ARG_CONV_EXCL="-aI;-gnatec" gnatmake -u -c  -fPIC -gnatec/home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/grt.adc -gnatdY -o main.o /home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/main.adb -Igrt
+gnatmake: objects up to date.
+sed -e "1,/-- *BEGIN/d" -e "/-- *END/,\$d" \
+  -e "s/   --   //" < grt/run-bind.adb | tr -d '\r' > grt/grt-files
+rm -f -f lib/ghdl/libgrt.a
+ar rcv lib/ghdl/libgrt.a `sed -e "/^-/d" -e "s!^!grt/!" < grt/grt-files` \
+ jumps.o times.o grt-cstdio.o grt-cgnatrts.o grt-no_sundials_c.o grt-cvpi.o grt-cvhpi.o grt-cdynload.o fstapi.o lz4.o fastlz.o grt/run-bind.o grt/main.o
+a - grt/./grt.o
+a - grt/./grt-c.o
+a - grt/./grt-severity.o
+a - grt/./grt-stdio.o
+a - grt/./grt-strings.o
+a - grt/./grt-types.o
+a - grt/./grt-astdio.o
+a - grt/./grt-fcvt.o
+a - grt/./grt-rstrings.o
+a - grt/./grt-rtis.o
+a - grt/./grt-rtis_binding.o
+a - grt/./grt-vhdl_types.o
+a - grt/./grt-callbacks.o
+a - grt/./grt-hooks.o
+a - grt/./grt-wave_opt.o
+a - grt/./grt-wave_opt-file.o
+a - grt/./grt-astdio-vhdl.o
+a - grt/./grt-errors.o
+a - grt/./grt-options.o
+a - grt/./grt-shadow_ieee.o
+a - grt/./grt-vstrings.o
+a - grt/./grt-wave_opt-design.o
+a - grt/./grt-algos.o
+a - grt/./grt-analog_solver.o
+a - grt/./grt-arith.o
+a - grt/./grt-avls.o
+a - grt/./grt-fst_api.o
+a - grt/./grt-ghw.o
+a - grt/./grt-heap.o
+a - grt/./grt-no_analog_solver.o
+a - grt/./grt-rtis_addr.o
+a - grt/./grt-stack2.o
+a - grt/./grt-table.o
+a - grt/./grt-files.o
+a - grt/./grt-to_strings.o
+a - grt/./grt-vstrings_io.o
+a - grt/./grt-rtis_utils.o
+a - grt/./grt-avhpi.o
+a - grt/./grt-avhpi_utils.o
+a - grt/./grt-backtraces-jit.o
+a - grt/./grt-backtraces-impl.o
+a - grt/./grt-backtraces.o
+a - grt/./grt-disp.o
+a - grt/./grt-disp_signals.o
+a - grt/./grt-stats.o
+a - grt/./grt-unithread.o
+a - grt/./grt-threads.o
+a - grt/./grt-errors_exec.o
+a - grt/./grt-processes.o
+a - grt/./grt-signals.o
+a - grt/./grt-disp_rti.o
+a - grt/./grt-disp_tree.o
+a - grt/./grt-files_lib.o
+a - grt/./grt-images.o
+a - grt/./grt-lib.o
+a - grt/./grt-names.o
+a - grt/./grt-psl.o
+a - grt/./grt-rtis_types.o
+a - grt/./grt-vital_annotate.o
+a - grt/./grt-sdf.o
+a - grt/./grt-std_logic_1164.o
+a - grt/./grt-values.o
+a - grt/./grt-change_generics.o
+a - grt/./grt-main.o
+a - grt/./grt-vcd.o
+a - grt/./grt-fst.o
+a - grt/./grt-vhpi.o
+a - grt/./grt-waves.o
+a - grt/./grt-zlib.o
+a - grt/./grt-vcdz.o
+a - grt/./version.o
+a - grt/./grt-vpi.o
+a - grt/./grt-modules.o
+a - grt/./ghdl_main.o
+a - jumps.o
+a - times.o
+a - grt-cstdio.o
+a - grt-cgnatrts.o
+a - grt-no_sundials_c.o
+a - grt-cvpi.o
+a - grt-cvhpi.o
+a - grt-cdynload.o
+a - fstapi.o
+a - lz4.o
+a - fastlz.o
+a - grt/run-bind.o
+a - grt/main.o
+ranlib lib/ghdl/libgrt.a
+sed -e "\!^.[/\\]!d" -e "/-shared/d" -e "/-static/d" -e "/-lgnat/d" \
+  -e "\X-L/Xd" < grt/grt-files > grt/grt-files.in
+echo "@/libgrt.a" > lib/ghdl/grt.lst
+for i in -ldl -lm; do echo $i >> lib/ghdl/grt.lst; done
+cat grt/grt-files.in >> lib/ghdl/grt.lst
+install -m 644 lib/ghdl/libgrt.a /usr/local/lib/ghdl/libgrt.a
+install -m 644 lib/ghdl/grt.lst /usr/local/lib/ghdl/grt.lst
+install -m 644 lib/ghdl/grt-exec.lst /usr/local/lib/ghdl/grt-exec.lst
+install -m 644 lib/ghdl/grt-shared.lst /usr/local/lib/ghdl/grt-shared.lst
+install -m 644 /home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/grt.ver /usr/local/lib/ghdl/grt.ver
+test "x" = x || test "xllvm" = xgcc || \
+  install -m 644  /usr/local/lib/ghdl/libbacktrace.a
+for d in ieee/v87 ieee/v93 ieee/v08 std/v87 std/v93 std/v08 src/ieee src/ieee/v87 src/ieee/v93 src/ieee2008 src/std src/std/v87 src/std/v93 src/std/v08 src/synopsys src/synopsys/v08 src/upf src/vital95 src/vital2000; do \
+  mkdir -p "/usr/local/lib/ghdl/$d"; \
+  install -m 644 -p \
+    lib/ghdl/$d/* "/usr/local/lib/ghdl/$d"; \
+done
+install: omitting directory 'lib/ghdl/src/ieee/v87'
+install: omitting directory 'lib/ghdl/src/ieee/v93'
+install: omitting directory 'lib/ghdl/src/std/v08'
+install: omitting directory 'lib/ghdl/src/std/v87'
+install: omitting directory 'lib/ghdl/src/std/v93'
+install: omitting directory 'lib/ghdl/src/synopsys/v08'
+install -m 644 -p \
+    ./scripts/ansi_color.sh "/usr/local/lib/ghdl/";
+mkdir -p "/usr/local/lib/ghdl/vendors"
+install -m 644 -p \
+    ./scripts/vendors/* "/usr/local/lib/ghdl/vendors/"
+install -m 755 -p \
+    ./scripts/vendors/*.sh "/usr/local/lib/ghdl/vendors/"
+install -m 755 -p lib/libghdlvpi.so "/usr/local/lib/"
+install -m 644 -p /home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/vpi_user.h "/usr/local/include/ghdl/"
+install -m 644 -p /home/ahmed-umar-pinjari/Downloads/eSim-2.5/ghdl-4.1.0/./src/grt/vhpi_user.h "/usr/local/include/ghdl/"
+install -m 755 -p lib/libghdl-4_1_0.so "/usr/local/lib/"
+install -m 755 -p libghdl.a "/usr/local/lib/"
+install -m 644 -p libghdl.link "/usr/local/lib/"
+install -m 644 -p ./src/synth/include/synth.h "/usr/local/include/ghdl/"
+install -m 644 -p ./src/synth/include/synth_gates.h "/usr/local/include/ghdl/"
+install -m 755 -p ghwdump "/usr/local/bin/"
+install -m 755 -p lib/libghw.so "/usr/local/lib/"
+install -m 644 -p ./ghw/libghw.h "/usr/local/include/ghdl/"
+"/usr/local/bin/ghdl" --disp-standard --std=87 > "/usr/local/lib/ghdl/src/std/v87/standard.vhdl"
+"/usr/local/bin/ghdl" --disp-standard --std=93 > "/usr/local/lib/ghdl/src/std/v93/standard.vhdl"
+"/usr/local/bin/ghdl" --disp-standard --std=08 > "/usr/local/lib/ghdl/src/std/v08/standard.vhdl"
