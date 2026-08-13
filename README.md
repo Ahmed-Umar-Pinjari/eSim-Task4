@@ -97,7 +97,7 @@ The installation script was updated to use the correct source path.
 
 ```bash
 tar -xJf "$src_dir/ghdl/$ghdl-source.tar.xz" -C "$HOME"
-````
+```
 
 ### Evidence
 
@@ -428,5 +428,3 @@ The required eSim-related tools were successfully installed and verified in the 
 **Ahmed Umar Pinjari**
 
 This repository was created as a technical troubleshooting and documentation record for eSim 2.5 installation on Ubuntu 25.04.
-
-````
