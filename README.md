@@ -1,4 +1,3 @@
-````markdown
 # eSim 2.5 — Ubuntu 25.04 Installation & Compatibility Fixes
 
 ## Overview
@@ -428,4 +427,3 @@ The required eSim-related tools were successfully installed and verified in the 
 **Ahmed Umar Pinjari**
 
 This repository was created as a technical troubleshooting and documentation record for eSim 2.5 installation on Ubuntu 25.04.
-````
