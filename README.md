@@ -5,9 +5,9 @@
 
 This repository documents the investigation, debugging, fixes, and final verification performed to install and run **eSim 2.5 on Ubuntu 25.04**.
 
-The original eSim installation script was designed around older Ubuntu/toolchain assumptions. During installation on Ubuntu 25.04, multiple dependency, archive-path, compiler, simulator, and post-install path issues were encountered.
+The original eSim installation script was designed around older Ubuntu and toolchain assumptions. During installation on Ubuntu 25.04, multiple dependency, archive-path, compiler, simulator, and post-install path issues were encountered.
 
-This repository maintains the complete troubleshooting trail, including:
+This repository preserves the complete troubleshooting trail, including:
 
 - Original installation evidence
 - Modified installation scripts
@@ -28,6 +28,7 @@ This repository maintains the complete troubleshooting trail, including:
 | LLVM | LLVM 18 |
 | Verilator | 4.210 |
 | Ngspice | ngspice-35 |
+| NGHDL | Installed successfully |
 | Shell | Bash |
 | Architecture | Linux |
 
@@ -37,33 +38,38 @@ This repository maintains the complete troubleshooting trail, including:
 
 During the eSim installation process, multiple issues were identified and investigated.
 
-### Issue 1 — Ubuntu 25.04 compatibility
+## Issue 1 — Ubuntu 25.04 Compatibility
 
 The original eSim installation process encountered compatibility problems on Ubuntu 25.04.
 
 The original installation behaviour was captured before applying modifications.
 
-Evidence:
+### Evidence
 
 - `screenshots/Screenshot 1 — Ubuntu version.png`
+- `screenshots/Screenshot 2 — VERSION_ID.png`
 - `screenshots/Screenshot 3 — Original eSim error.png`
+- `screenshots/Screenshot 4 — Original install-eSim.sh.png`
 - `logs/issue1-original.txt`
 
 ---
 
-### Issue 2 — libcanberra dependency
+## Issue 2 — libcanberra Dependency
 
 The installation encountered a missing `libcanberra` / related dependency issue.
 
 The dependency was investigated, fixed, and verified on Ubuntu 25.04.
 
-Evidence:
+### Evidence
 
 - `screenshots/Screenshot 9 - Issue 2 libcanberra error.png`
 - `screenshots/Screenshot 10 - 25.04 canberra dependency before fix.png`
+- `screenshots/Screenshot 11 - 25.04 script backup.png`
 - `screenshots/Screenshot 12 - 25.04 canberra dependency fixed.png`
+- `screenshots/Screenshot 13 - 25.04 after fix backup.png`
 - `screenshots/Screenshot 15 - libcanberra package verification.png`
 - `logs/issue2-canberra-fixed-installation.txt`
+- `logs/issue2-version-check.txt`
 
 ---
 
@@ -81,24 +87,28 @@ The investigation identified:
 - LLVM compatibility
 - GHDL build and installation verification
 
-### GHDL Archive Path Fix
+## GHDL Archive Path Fix
 
 The GHDL archive was located under the eSim source directory rather than the path expected by the original installation function.
 
 The installation script was updated to use the correct source path.
 
-Relevant fix:
+### Relevant Fix
 
 ```bash
 tar -xJf "$src_dir/ghdl/$ghdl-source.tar.xz" -C "$HOME"
-```
+````
 
-Evidence:
+### Evidence
 
+* `screenshots/Screenshot 16 - Issue 2 fixed and GHDL tar error.png`
+* `screenshots/Screenshot 17 - GHDL archive check.png`
 * `screenshots/Screenshot 18 - GHDL archive missing.png`
 * `screenshots/Screenshot 19 - GHDL archive present but wrong path.png`
 * `screenshots/Screenshot 20 - GHDL install function before fix.png`
+* `screenshots/Screenshot 21 - GHDL before-fix backup.png`
 * `screenshots/Screenshot 22 - GHDL archive path fixed.png`
+* `screenshots/Screenshot 23 - GHDL after-fix backup.png`
 
 ---
 
@@ -110,8 +120,10 @@ LLVM 18 availability and installation were verified before rebuilding GHDL.
 
 The GHDL source was configured and built using LLVM 18.
 
-Evidence:
+### Evidence
 
+* `screenshots/Screenshot 24 - LLVM and Clang versions.png`
+* `screenshots/Screenshot 25 - GHDL configure source proof.png`
 * `screenshots/Screenshot 27 - LLVM 18 availability.png`
 * `screenshots/Screenshot 28 - LLVM 18 installation.png`
 * `screenshots/Screenshot 29 - LLVM 18 version check.png`
@@ -120,6 +132,11 @@ Evidence:
 * `screenshots/Screenshot 32 - GHDL configure with LLVM18 successful.png`
 * `screenshots/Screenshot 33 - GHDL LLVM18 build successful.png`
 * `screenshots/Screenshot 34 - GHDL LLVM18 installation verification.png`
+* `logs/issue3-llvm18-availability.txt`
+* `logs/issue3-llvm18-installed.txt`
+* `logs/issue3-llvm-version-proof.txt`
+* `logs/issue3-ghdl-llvm18-build.txt`
+* `logs/issue3-ghdl-llvm18-install.txt`
 
 ---
 
@@ -143,14 +160,18 @@ Verified version:
 Verilator 4.210
 ```
 
-Evidence:
+### Evidence
 
 * `screenshots/Screenshot 37 - Verilator archive missing error.png`
 * `screenshots/Screenshot 38 - Verilator archive check.png`
 * `screenshots/Screenshot 39 - Verilator install function.png`
+* `screenshots/Screenshot 40 - Verilator script backup.png`
 * `screenshots/Screenshot 41 - Verilator path fix.png`
 * `screenshots/Screenshot 42 - Verilator path and archive check.png`
-* `screenshots/Screenshot 53_Verilator_Installation_Success.png`
+* `screenshots/Screenshot 43 - Verilator fixed installation NGHDL error.png`
+* `screenshots/Screenshot_53_Verilator_Installation_Success.png`
+* `logs/issue3-verilator-path-check.txt`
+* `logs/issue3-verilator-fixed-installation.txt`
 
 ---
 
@@ -174,14 +195,17 @@ The final executable was verified at:
 /usr/local/bin/nghdl
 ```
 
-Evidence:
+### Evidence
 
 * `screenshots/Screenshot 43 - Verilator fixed installation NGHDL error.png`
 * `screenshots/Screenshot 44 - NGHDL script backup.png`
 * `screenshots/Screenshot 45 - NGHDL install path function.png`
 * `screenshots/Screenshot 46 — NGHDL path fix.png`
+* `screenshots/Screenshot 47 — NGHDL installed, post-install path error.png`
 * `screenshots/Screenshot 50 — NGHDL Fixed Installation Success.png`
 * `screenshots/Screenshot_52_NGHDL_Installation_Success.png`
+* `logs/issue3-nghdl-path-fixed-installation.txt`
+* `logs/issue3-nghdl-fixed-installation-v2.txt`
 
 ---
 
@@ -213,7 +237,7 @@ Output:
 /usr/bin/ngspice
 ```
 
-Evidence:
+### Evidence
 
 * `screenshots/Screenshot 48 — NGSpice Path Fix Verified.png`
 * `screenshots/Screenshot 49 — NGSpice Path Fix Applied.png`
@@ -225,25 +249,25 @@ Evidence:
 
 The final environment was verified using the installed tools.
 
-### GHDL
+## GHDL
 
 ```text
 GHDL 4.1.0
 ```
 
-### Verilator
+## Verilator
 
 ```text
 Verilator 4.210
 ```
 
-### Ngspice
+## Ngspice
 
 ```text
 ngspice-35
 ```
 
-### NGHDL
+## NGHDL
 
 ```text
 /usr/local/bin/nghdl
@@ -258,7 +282,25 @@ Added softlink for Ngspice.....
 Added softlink for NGHDL.....
 ```
 
-Evidence:
+### Final Verification Command
+
+```bash
+echo "=== FINAL eSim TOOL VERIFICATION ==="
+
+echo "--- GHDL ---"
+ghdl --version | head -n 3
+
+echo "--- Verilator ---"
+verilator --version
+
+echo "--- Ngspice ---"
+ngspice -v | head -n 8
+
+echo "--- NGHDL ---"
+which nghdl
+```
+
+### Evidence
 
 * `screenshots/Screenshot_54_Final_Verification.png`
 * `screenshots/Screenshot_55_Final_eSim_Tool_Verification.png`
@@ -385,5 +427,6 @@ The required eSim-related tools were successfully installed and verified in the 
 
 **Ahmed Umar Pinjari**
 
-
 This repository was created as a technical troubleshooting and documentation record for eSim 2.5 installation on Ubuntu 25.04.
+
+````
