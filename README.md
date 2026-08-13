@@ -45,11 +45,11 @@ The original installation behaviour was captured before applying modifications.
 
 ### Evidence
 
-- `screenshots/Screenshot 1 — Ubuntu version.png`
-- `screenshots/Screenshot 2 — VERSION_ID.png`
-- `screenshots/Screenshot 3 — Original eSim error.png`
-- `screenshots/Screenshot 4 — Original install-eSim.sh.png`
-- `logs/issue1-original.txt`
+- [Screenshoot](screenshots/Screenshot 1 — Ubuntu version.png)
+- [Screenshoot](screenshots/Screenshot 2 — VERSION_ID.png)
+- [Screenshoot](screenshots/Screenshot 3 — Original eSim error.png)
+- [Screenshoot](screenshots/Screenshot 4 — Original install-eSim.sh.png)
+- [Log](logs/issue1-original.txt)
 
 ---
 
@@ -161,7 +161,7 @@ Verilator 4.210
 
 ### Evidence
 
-* `screenshots/Screenshot 37 - Verilator archive missing error.png`
+* [Screenshoot](screenshots/Screenshot 37 - Verilator archive missing error.png)
 * `screenshots/Screenshot 38 - Verilator archive check.png`
 * `screenshots/Screenshot 39 - Verilator install function.png`
 * `screenshots/Screenshot 40 - Verilator script backup.png`
