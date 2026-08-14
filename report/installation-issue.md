@@ -1,51 +1,122 @@
-````markdown
-## Issue 1: Ubuntu 25.04 Not Supported by eSim Installer
+# eSim 2.5 Installation Issues and Compatibility Fixes on Ubuntu 25.04
 
-### 1. Environment
+## 1. Report Overview
 
-- Operating System: Ubuntu 25.04
-- Ubuntu Codename: plucky
-- eSim Version: 2.5
+This report documents the investigation, debugging, modification, and verification performed during the installation of **eSim 2.5 on Ubuntu 25.04**.
 
-### 2. Problem
+The purpose of this investigation was to identify compatibility and installation problems in the existing eSim installation process, determine their root causes, apply targeted fixes, and verify the corrected installation flow.
 
-While installing eSim 2.5 on Ubuntu 25.04, the installation process reported that Ubuntu 25.04 was not supported.
+The investigation was performed systematically by:
+
+1. Reproducing the original installation issue
+2. Capturing the original error
+3. Inspecting the installation scripts
+4. Identifying the root cause
+5. Creating backups before modifying scripts
+6. Applying targeted fixes
+7. Re-running the affected installation stage
+8. Verifying the result
+9. Preserving logs and screenshots as evidence
+
+---
+
+# 2. Environment
+
+| Component | Details |
+|---|---|
+| Operating System | Ubuntu 25.04 |
+| Ubuntu Codename | plucky |
+| eSim Version | 2.5 |
+| Shell | Bash |
+| Platform | Linux |
+
+---
+
+# 3. Issue Summary
+
+| Issue | Component | Problem | Status |
+|---|---|---|---|
+| Issue 1 | Ubuntu Compatibility | Ubuntu 25.04 not recognized by installer | FIXED |
+| Issue 2 | libcanberra | Dependency/installation compatibility issue | FIXED |
+| Issue 3A | GHDL | Incorrect source archive path | FIXED |
+| Issue 3B | GHDL / LLVM | LLVM compatibility issue | FIXED |
+| Issue 3C | Verilator | Archive/path problem | FIXED |
+| Issue 3D | NGHDL | Source/archive path problem | FIXED |
+| Issue 3E | NGHDL / Ngspice | Executable/path verification issue | VERIFIED |
+
+---
+
+# 4. Investigation Methodology
+
+The troubleshooting process followed a controlled debugging approach:
+
+```text
+Original Installation
+        ↓
+Capture Error
+        ↓
+Identify Affected Component
+        ↓
+Inspect Installation Script
+        ↓
+Determine Root Cause
+        ↓
+Backup Original Script
+        ↓
+Apply Targeted Fix
+        ↓
+Run Installation Again
+        ↓
+Verify Component
+        ↓
+Capture Log + Screenshot
+        ↓
+Proceed to Next Issue
+        ↓
+Final Tool Verification
+````
+
+For each issue, the following information was documented:
+
+* Problem
+* Observation
+* Investigation
+* Root Cause
+* Fix
+* Verification
+* Evidence
+* Final Status
+
+---
+
+# 5. Issue 1 — Ubuntu 25.04 Compatibility
+
+## 5.1 Problem
+
+The original eSim installer did not recognize Ubuntu 25.04 as a supported operating-system version.
 
 The installation was started using:
 
 ```bash
 ./install-eSim.sh --install
-````
+```
 
-### 3. Observed Error
-
-The installer displayed the following message:
+The installer stopped with:
 
 ```text
 Detected Ubuntu Version:
 Unsupported Ubuntu version: 25.04 ()
 ```
 
-The Ubuntu version was correctly detected as `25.04`, but the full version string was empty.
+The important observation was that Ubuntu 25.04 was detected, but the complete version information was not displayed correctly.
 
-### 4. Initial Investigation
+---
 
-The main eSim installation script was inspected to understand how the Ubuntu version was detected and how the appropriate installation script was selected.
+## 5.2 Environment Verification
 
-The following command was used:
+Before modifying the installer, the operating-system version was independently verified.
 
-```bash
-sed -n '1,70p' install-eSim.sh
-```
-
-The version detection function contained:
-
-```bash
-VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d '"' -f 2)
-FULL_VERSION=$(lsb_release -d | grep -oP '\d+.\d+.\d+')
-```
-
-The Ubuntu version was verified separately using:
+The Ubuntu release information was checked using:
 
 ```bash
 lsb_release -d
@@ -57,7 +128,7 @@ Output:
 Description:    Ubuntu 25.04
 ```
 
-The `VERSION_ID` was also verified using:
+The version ID was also checked using:
 
 ```bash
 grep '^VERSION_ID' /etc/os-release
@@ -69,42 +140,106 @@ Output:
 VERSION_ID="25.04"
 ```
 
-Therefore, Ubuntu itself was correctly reporting version `25.04`.
+This confirmed that the operating system itself was correctly reporting Ubuntu 25.04.
 
-### 5. Version Selection Logic
+Therefore, the problem was determined to be within the eSim installation script rather than the Ubuntu installation.
 
-The installer was also checked to determine which installation script was selected for each Ubuntu version.
+---
 
-The original version-selection logic supported specific Ubuntu releases through a `case` statement.
+## 5.3 Investigation
 
-Ubuntu 25.04 was not handled in the original version-selection logic.
+The main installation script was inspected to understand:
 
-This caused the installer to report Ubuntu 25.04 as unsupported.
+1. How the Ubuntu version was detected.
+2. How the version was converted into a supported installation script.
+3. Why Ubuntu 25.04 was rejected.
 
-### 6. Root Cause
+The relevant version-detection logic contained:
 
-Two problems were identified in the version detection and selection logic:
+```bash
+VERSION_ID=$(grep "^VERSION_ID" /etc/os-release | cut -d '"' -f 2)
+FULL_VERSION=$(lsb_release -d | grep -oP '\d+.\d+.\d+')
+```
 
-1. Ubuntu 25.04 was not included in the original version-selection logic.
-2. The `FULL_VERSION` detection command expected a three-part version number, while Ubuntu 25.04 reports a two-part version number.
+The `FULL_VERSION` pattern expected a three-part version number.
 
-Because of this, the installer displayed:
+However, Ubuntu 25.04 reports its version as:
+
+```text
+25.04
+```
+
+which contains two version components.
+
+---
+
+## 5.4 Version Selection Investigation
+
+The installer also contained version-selection logic based on a `case` statement.
+
+The supported Ubuntu releases were checked to determine how the installation script was selected.
+
+Ubuntu 25.04 was not present in the original version-selection logic.
+
+As a result, the installer reached the unsupported-version condition even though the operating system was valid.
+
+---
+
+## 5.5 Root Cause Analysis
+
+Two related compatibility problems were identified.
+
+### Root Cause 1 — Missing Ubuntu 25.04 Support
+
+The original `install-eSim.sh` did not contain a dedicated entry for:
+
+```text
+25.04
+```
+
+Therefore, Ubuntu 25.04 was treated as an unsupported release.
+
+### Root Cause 2 — Version Pattern Mismatch
+
+The original `FULL_VERSION` extraction used:
+
+```bash
+grep -oP '\d+.\d+.\d+'
+```
+
+This expected a three-component version.
+
+Ubuntu 25.04 provides:
+
+```text
+25.04
+```
+
+Therefore, the full version string could remain empty.
+
+This explains the installer output:
 
 ```text
 Detected Ubuntu Version:
 ```
 
-instead of displaying the complete version.
+followed by the unsupported-version message.
 
-### 7. Solution
+---
 
-A dedicated Ubuntu 25.04 installation script was added:
+# 6. Fix Applied
+
+## 6.1 Ubuntu 25.04 Installation Script
+
+A dedicated Ubuntu 25.04 installation script was introduced:
 
 ```text
 install-eSim-scripts/install-eSim-25.04.sh
 ```
 
-The main `install-eSim.sh` script was updated to handle Ubuntu 25.04:
+The main installer was updated to select this script when Ubuntu 25.04 was detected.
+
+The relevant version-selection logic was:
 
 ```bash
 "25.04")
@@ -112,23 +247,40 @@ The main `install-eSim.sh` script was updated to handle Ubuntu 25.04:
     ;;
 ```
 
-The Ubuntu 25.04 installation script was also modified to recognize Ubuntu 25.04.
+This allowed the main installer to route Ubuntu 25.04 installations to the dedicated installation script.
 
-### 8. KiCad Handling for Ubuntu 25.04
+---
 
-The Ubuntu 25.04 installation script was configured to use KiCad from the official Ubuntu repository instead of the KiCad PPA.
+## 6.2 Ubuntu 25.04 Installation Script
+
+The Ubuntu 25.04-specific installation script was also updated to handle the dependencies and tools required for the installation environment.
+
+---
+
+# 7. KiCad Compatibility
+
+During the Ubuntu 25.04 installation, the existing KiCad PPA-based approach resulted in a dependency conflict.
+
+To avoid the PPA-related dependency issue, the Ubuntu 25.04 installation script was configured to use KiCad packages from the official Ubuntu repository.
 
 The installation command used was:
 
 ```bash
-sudo apt-get install -y --no-install-recommends kicad kicad-footprints kicad-libraries kicad-symbols kicad-templates
+sudo apt-get install -y --no-install-recommends \
+    kicad \
+    kicad-footprints \
+    kicad-libraries \
+    kicad-symbols \
+    kicad-templates
 ```
 
-This approach was selected because the KiCad PPA caused a dependency conflict on Ubuntu 25.04.
+KiCad installation and the KiCad GUI were subsequently verified.
 
-### 9. Verification
+---
 
-The Ubuntu version was verified using:
+# 8. Verification
+
+After the modification, Ubuntu 25.04 was verified using:
 
 ```bash
 lsb_release -rs
@@ -152,34 +304,124 @@ Output:
 VERSION_ID="25.04"
 ```
 
-The main installer was checked to confirm that Ubuntu 25.04 was mapped to:
+The main installer was then inspected to confirm that Ubuntu 25.04 was mapped to:
 
 ```text
 install-eSim-scripts/install-eSim-25.04.sh
 ```
 
-### 10. Result
+The installation process was able to proceed beyond the original unsupported Ubuntu version error.
 
-After modifying the installation scripts, Ubuntu 25.04 was recognized by the eSim installer and the Ubuntu 25.04-specific installation script could be selected.
+---
 
-The installation process was able to proceed beyond the initial Ubuntu-version compatibility issue.
+# 9. Before-Fix vs After-Fix
 
-### 11. Evidence
+| Area                   | Before Fix                     | After Fix                             |
+| ---------------------- | ------------------------------ | ------------------------------------- |
+| Ubuntu 25.04 detection | Version format mismatch        | Ubuntu version correctly recognized   |
+| Ubuntu 25.04 selection | Not present                    | Dedicated case added                  |
+| Installation script    | Ubuntu 25.04 rejected          | Ubuntu 25.04-specific script selected |
+| KiCad installation     | PPA dependency conflict        | Ubuntu repository packages used       |
+| Installation flow      | Stopped at compatibility check | Proceeded beyond original issue       |
 
-The following evidence was collected during the investigation:
+---
 
-* Screenshot of the original `Unsupported Ubuntu version: 25.04` error
-* Screenshot of `/etc/os-release` showing `VERSION_ID="25.04"`
-* Screenshot of `lsb_release -d`
-* Screenshot of the original version-selection logic
-* Screenshot of the updated `install-eSim.sh`
-* Screenshot of `install-eSim-25.04.sh`
-* Terminal output showing Ubuntu 25.04 detection
+# 10. Evidence
 
-### 12. Status
+The investigation was supported by screenshots and logs stored in the repository.
+
+## Screenshots
+
+* [Screenshot 1 — Ubuntu version](<screenshots/screenshot 1 — Ubuntu version.png>)
+* [Screenshot 2 — VERSION_ID](<screenshots/screenshot 2 — VERSION_ID.png>)
+* [Screenshot 3 — Original eSim error](<screenshots/screenshot 3 — Original eSim error.png>)
+* [Screenshot 4 — Original install-eSim.sh](<screenshots/screenshot 4 — Original install-eSim.sh.png>)
+* [Screenshot 5 — Updated install-eSim.sh](<screenshots/screenshot 5 — Updated install-eSim.sh.png>)
+* [Screenshot 6 — 25.04 script present](<screenshots/screenshot 6 — 25.04 script present.png>)
+* [Screenshot 7 — KiCad successfully installed](<screenshots/screenshot 7 — KiCad successfully installed.png>)
+* [Screenshot 8 — KiCad GUI](<screenshots/screenshot 8 — KiCad GUI.png>)
+
+## Logs
+
+* [Original Issue 1 Log](logs/issue1-original.txt)
+* [Fixed Issue 1 Log](logs/issue1-fixed.txt)
+
+---
+
+# 11. Result
+
+The Ubuntu 25.04 compatibility problem in the original eSim installation flow was resolved.
+
+The installer was modified to:
+
+* Recognize Ubuntu 25.04
+* Select a dedicated Ubuntu 25.04 installation script
+* Handle the Ubuntu 25.04-specific installation path
+* Use an appropriate KiCad installation method
+
+The installation process was able to proceed beyond the original unsupported-version error.
+
+---
+
+# 12. Status
 
 **FIXED**
 
-The Ubuntu 25.04 compatibility issue in the main eSim installer was resolved by adding Ubuntu 25.04 to the version-selection logic and creating a dedicated Ubuntu 25.04 installation script.
+---
 
+# 13. Key Learning
+
+This issue demonstrated that installation compatibility depends on more than simply detecting the operating-system version.
+
+Both of the following must be handled correctly:
+
+1. Operating-system version parsing
+2. Version-specific installation-script selection
+
+A valid operating-system release can still be rejected when the installation script does not explicitly support its version format or does not contain a corresponding installation path.
+
+This investigation also demonstrated the importance of:
+
+* Reproducing the original failure
+* Inspecting the actual installation logic
+* Identifying the root cause before modifying code
+* Keeping backups of original scripts
+* Verifying each modification independently
+* Maintaining logs and screenshots as evidence
+
+---
+
+# 14. Repository Evidence Structure
+
+The related evidence is organized as follows:
+
+```text
+eSim-Task4/
+│
+├── fixes/
+│   └── Installation script backups and fixes
+│
+├── logs/
+│   ├── issue1-original.txt
+│   └── issue1-fixed.txt
+│
+├── notes/
+│   └── issue1.md
+│
+├── report/
+│   └── installation-issue.md
+│
+└── screenshots/
+    ├── Original installation evidence
+    ├── Investigation evidence
+    ├── Fix evidence
+    └── Verification evidence
 ```
+
+---
+
+# 15. Issue Status
+
+**Issue 1 — Ubuntu 25.04 Compatibility: FIXED**
+
+The issue was reproduced, investigated, root-caused, fixed, and verified with supporting logs and screenshots.
