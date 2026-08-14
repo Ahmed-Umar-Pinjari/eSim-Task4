@@ -221,8 +221,8 @@ The investigation was documented using:
 - [Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
 - [Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
-- [log](logsissue1-original.txt)
-- [log](logsissue1-fixed.txt)
+- [log](logs/issue1-original.txt)
+- [log](logs/issue1-fixed.txt)
 
 ---
 
@@ -441,8 +441,8 @@ Ubuntu 25.04 detection and installer mapping were verified.
 - [Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
 - [Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
-- [log](logsissue1-original.txt)
-- [log](logsissue1-fixed.txt)
+- [log](logs/issue1-original.txt)
+- [log](logs/issue1-fixed.txt)
 
 ## Status
 
@@ -482,9 +482,9 @@ The corrected dependency installation was executed successfully and package avai
 - [Screenshot](<screenshots/Screenshot 14 - Issue 2 fixed installation result.png>)
 - [Screenshot](<screenshots/Screenshot 15 - libcanberra package verification.png>)
 
-- [log](logsissue2-canberra-fixed-installation.txt)
-- [log](logsissue2-version-check.txt)
-- [log](logsissue2-fixed-installation.txt)
+- [log](logs/issue2-canberra-fixed-installation.txt)
+- [log](logs/issue2-version-check.txt)
+- [log](logs/issue2-fixed-installation.txt)
 
 ## Status
 
@@ -572,12 +572,12 @@ GHDL 4.1.0
 
 Relevant logs:
 
-- [log](logsissue3-llvm18-availability.txt)
-- [log](logsissue3-llvm18-installed.txt)
-- [log](logsissue3-llvm-version-proof.txt)
-- [log](logsissue3-ghdl-llvm18-build.txt)
-- [log](logsissue3-ghdl-llvm18-install.txt)
-- [log](logsissue3-after-llvm18-script-fix.txt)
+- [log](logs/issue3-llvm18-availability.txt)
+- [log](logs/issue3-llvm18-installed.txt)
+- [log](logs/issue3-llvm-version-proof.txt)
+- [log](logs/issue3-ghdl-llvm18-build.txt)
+- [log](logs/issue3-ghdl-llvm18-install.txt)
+- [log](logs/issue3-after-llvm18-script-fix.txt)
 
 ## Status
 
@@ -628,8 +628,8 @@ Verilator 4.210
 
 Relevant logs:
 
-- [log](logsissue3-verilator-path-check.txt)
-- [log](logsissue3-verilator-fixed-installation.txt)
+- [log](logs/issue3-verilator-path-check.txt)
+- [log](logs/issue3-verilator-fixed-installation.txt)
 
 ## Status
 
@@ -678,8 +678,8 @@ The installed NGHDL executable was verified at:
 
 Relevant logs:
 
-- [log](logsissue3-nghdl-path-fixed-installation.txt)
-- [log](logsissue3-nghdl-fixed-installation-v2.txt)
+- [log](logs/issue3-nghdl-path-fixed-installation.txt)
+- [log](logs/issue3-nghdl-fixed-installation-v2.txt)
 
 ## Status
 
@@ -808,7 +808,7 @@ which nghdl
 - [Screenshot](<screenshots/Screenshot_54_Final_Verification.png>)
 - [Screenshot](<screenshots/Screenshot_55_Final_eSim_Tool_Verification.png>)
 
-- [log](logsissue3-nghdl-fixed-installation-v2.txt)
+- [log](logs/issue3-nghdl-fixed-installation-v2.txt)
 
 ---
 
