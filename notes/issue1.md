@@ -212,18 +212,14 @@ install-eSim-scripts/install-eSim-25.04.sh
 
 The investigation was documented using:
 
-### screenshots
-
-[Screenshot](screenshots/Screenshot 1 — Ubuntu version.png)
-[Screenshot](screenshots/Screenshot 2 — VERSION_ID.png)
-[Screenshot](screenshots/Screenshot 3 — Original eSim error.png)
-[Screenshot](screenshots/Screenshot 4 — Original install-eSim.sh.png)
-[Screenshot](screenshots/Screenshot 5 — Updated install-eSim.sh.png)
-[Screenshot](screenshots/Screenshot 6 — 25.04 script present.png)
-[Screenshot](screenshots/Screenshot 7 — KiCad successfully installed.png)
-[Screenshot](screenshots/Screenshot 8 — KiCad GUI.png)
-
-### Logs
+[Screenshot](<screenshots/Screenshot 1 — Ubuntu version.png>)
+[Screenshot](<screenshots/Screenshot 2 — VERSION_ID.png>)
+[Screenshot](<screenshots/Screenshot 3 — Original eSim error.png>)
+[Screenshot](<screenshots/Screenshot 4 — Original install-eSim.sh.png>)
+[Screenshot](<screenshots/Screenshot 5 — Updated install-eSim.sh.png>)
+[Screenshot](<screenshots/Screenshot 6 — 25.04 script present.png>)
+[Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
+[Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
 [log](logsissue1-original.txt)
 [log](logsissue1-fixed.txt)
@@ -254,15 +250,6 @@ This issue demonstrated the importance of checking both:
 * Version-selection logic inside installation scripts
 
 An installer may correctly detect an operating-system version but still reject it if that version is not explicitly handled by the script.
-
-
-Ye tumhare current short note se **kaafi stronger** hai. Current file mein sirf problem/cause/evidence/status tha; new one complete investigation trail deta hai. :contentReference[oaicite:2]{index=2}
-
----
-
-# 2️⃣ `report/installation-issue.md` — BEST VERSION
-
-Isko main **main technical report** rakhunga. Tumhara existing report already good hai, lekin ye structure evaluator ke point of view se better hai:
 
 # eSim 2.5 Installation Issues and Compatibility Fixes on Ubuntu 25.04
 
@@ -445,14 +432,14 @@ Ubuntu 25.04 detection and installer mapping were verified.
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 1 — Ubuntu version.png)
-[Screenshot](screenshots/Screenshot 2 — VERSION_ID.png)
-[Screenshot](screenshots/Screenshot 3 — Original eSim error.png)
-[Screenshot](screenshots/Screenshot 4 — Original install-eSim.sh.png)
-[Screenshot](screenshots/Screenshot 5 — Updated install-eSim.sh.png)
-[Screenshot](screenshots/Screenshot 6 — 25.04 script present.png)
-[Screenshot](screenshots/Screenshot 7 — KiCad successfully installed.png)
-[Screenshot](screenshots/Screenshot 8 — KiCad GUI.png)
+[Screenshot](<screenshots/Screenshot 1 — Ubuntu version.png>)
+[Screenshot](<screenshots/Screenshot 2 — VERSION_ID.png>)
+[Screenshot](<screenshots/Screenshot 3 — Original eSim error.png>)
+[Screenshot](<screenshots/Screenshot 4 — Original install-eSim.sh.png>)
+[Screenshot](<screenshots/Screenshot 5 — Updated install-eSim.sh.png>)
+[Screenshot](<screenshots/Screenshot 6 — 25.04 script present.png>)
+[Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
+[Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
 [log](logsissue1-original.txt)
 [log](logsissue1-fixed.txt)
@@ -487,13 +474,13 @@ The corrected dependency installation was executed successfully and package avai
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 9 - Issue 2 libcanberra error.png)
-[Screenshot](screenshots/Screenshot 10 - 25.04 canberra dependency before fix.png)
-[Screenshot](screenshots/Screenshot 11 - 25.04 script backup.png)
-[Screenshot](screenshots/Screenshot 12 - 25.04 canberra dependency fixed.png)
-[Screenshot](screenshots/Screenshot 13 - 25.04 after fix backup.png)
-[Screenshot](screenshots/Screenshot 14 - Issue 2 fixed installation result.png)
-[Screenshot](screenshots/Screenshot 15 - libcanberra package verification.png)
+[Screenshot](<screenshots/Screenshot 9 - Issue 2 libcanberra error.png>)
+[Screenshot](<screenshots/Screenshot 10 - 25.04 canberra dependency before fix.png>)
+[Screenshot](<screenshots/Screenshot 11 - 25.04 script backup.png>)
+[Screenshot](<screenshots/Screenshot 12 - 25.04 canberra dependency fixed.png>)
+[Screenshot](<screenshots/Screenshot 13 - 25.04 after fix backup.png>)
+[Screenshot](<screenshots/Screenshot 14 - Issue 2 fixed installation result.png>)
+[Screenshot](<screenshots/Screenshot 15 - libcanberra package verification.png>)
 
 [log](logsissue2-canberra-fixed-installation.txt)
 [log](logsissue2-version-check.txt)
@@ -533,14 +520,14 @@ tar -xJf "$src_dir/ghdl/$ghdl-source.tar.xz" -C "$HOME"
 
 ### Evidence
 
-[Screenshot](screenshots/Screenshot 16 - Issue 2 fixed and GHDL tar error.png)
-[Screenshot](screenshots/Screenshot 17 - GHDL archive check.png)
-[Screenshot](screenshots/Screenshot 18 - GHDL archive missing.png)
-[Screenshot](screenshots/Screenshot 19 - GHDL archive present but wrong path.png)
-[Screenshot](screenshots/Screenshot 20 - GHDL install function before fix.png)
-[Screenshot](screenshots/Screenshot 21 - GHDL before-fix backup.png)
-[Screenshot](screenshots/Screenshot 22 - GHDL archive path fixed.png)
-[Screenshot](screenshots/Screenshot 23 - GHDL after-fix backup.png)
+[Screenshot](<screenshots/Screenshot 16 - Issue 2 fixed and GHDL tar error.png>)
+[Screenshot](<screenshots/Screenshot 17 - GHDL archive check.png>)
+[Screenshot](<screenshots/Screenshot 18 - GHDL archive missing.png>)
+[Screenshot](<screenshots/Screenshot 19 - GHDL archive present but wrong path.png>)
+[Screenshot](<screenshots/Screenshot 20 - GHDL install function before fix.png>)
+[Screenshot](<screenshots/Screenshot 21 - GHDL before-fix backup.png>)
+[Screenshot](<screenshots/Screenshot 22 - GHDL archive path fixed.png>)
+[Screenshot](<screenshots/Screenshot 23 - GHDL after-fix backup.png>)
 
 ---
 
@@ -570,18 +557,18 @@ GHDL 4.1.0
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 24 - LLVM and Clang versions.png)
-[Screenshot](screenshots/Screenshot 25 - GHDL configure source proof.png)
-[Screenshot](screenshots/Screenshot 27 - LLVM 18 availability.png)
-[Screenshot](screenshots/Screenshot 28 - LLVM 18 installation.png)
-[Screenshot](screenshots/Screenshot 29 - LLVM 18 version check.png)
-[Screenshot](screenshots/Screenshot 30 - LLVM 18 paths and versions.png)
-[Screenshot](screenshots/Screenshot 31 - GHDL source location and LLVM18.png)
-[Screenshot](screenshots/Screenshot 32 - GHDL configure with LLVM18 successful.png)
-[Screenshot](screenshots/Screenshot 33 - GHDL LLVM18 build successful.png)
-[Screenshot](screenshots/Screenshot 34 - GHDL LLVM18 installation verification.png)
-[Screenshot](screenshots/Screenshot 35 - GHDL still using LLVM20 error.png)
-[Screenshot](screenshots/Screenshot 36 - 25.04 script updated for LLVM18.png)
+[Screenshot](<screenshots/Screenshot 24 - LLVM and Clang versions.png>)
+[Screenshot](<screenshots/Screenshot 25 - GHDL configure source proof.png>)
+[Screenshot](<screenshots/Screenshot 27 - LLVM 18 availability.png>)
+[Screenshot](<screenshots/Screenshot 28 - LLVM 18 installation.png>)
+[Screenshot](<screenshots/Screenshot 29 - LLVM 18 version check.png>)
+[Screenshot](<screenshots/Screenshot 30 - LLVM 18 paths and versions.png>)
+[Screenshot](<screenshots/Screenshot 31 - GHDL source location and LLVM18.png>)
+[Screenshot](<screenshots/Screenshot 32 - GHDL configure with LLVM18 successful.png>)
+[Screenshot](<screenshots/Screenshot 33 - GHDL LLVM18 build successful.png>)
+[Screenshot](<screenshots/Screenshot 34 - GHDL LLVM18 installation verification.png>)
+[Screenshot](<screenshots/Screenshot 35 - GHDL still using LLVM20 error.png>)
+[Screenshot](<screenshots/Screenshot 36 - 25.04 script updated for LLVM18.png>)
 
 Relevant logs:
 
@@ -630,14 +617,14 @@ Verilator 4.210
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 37 - Verilator archive missing error.png)
-[Screenshot](screenshots/Screenshot 38 - Verilator archive check.png)
-[Screenshot](screenshots/Screenshot 39 - Verilator install function.png)
-[Screenshot](screenshots/Screenshot 40 - Verilator script backup.png)
-[Screenshot](screenshots/Screenshot 41 - Verilator path fix.png)
-[Screenshot](screenshots/Screenshot 42 - Verilator path and archive check.png)
-[Screenshot](screenshots/Screenshot 43 - Verilator fixed installation NGHDL error.png)
-[Screenshot](screenshots/Screenshot_53_Verilator_Installation_Success.png)
+[Screenshot](<screenshots/Screenshot 37 - Verilator archive missing error.png>)
+[Screenshot](<screenshots/Screenshot 38 - Verilator archive check.png>)
+[Screenshot](<screenshots/Screenshot 39 - Verilator install function.png>)
+[Screenshot](<screenshots/Screenshot 40 - Verilator script backup.png>)
+[Screenshot](<screenshots/Screenshot 41 - Verilator path fix.png>)
+[Screenshot](<screenshots/Screenshot 42 - Verilator path and archive check.png>)
+[Screenshot](<screenshots/Screenshot 43 - Verilator fixed installation NGHDL error.png>)
+[Screenshot](<screenshots/Screenshot_53_Verilator_Installation_Success.png>)
 
 Relevant logs:
 
@@ -682,12 +669,12 @@ The installed NGHDL executable was verified at:
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 44 - NGHDL script backup.png)
-[Screenshot](screenshots/Screenshot 45 - NGHDL install path function.png)
-[Screenshot](screenshots/Screenshot 46 — NGHDL path fix.png)
-[Screenshot](screenshots/Screenshot 47 — NGHDL installed, post-install path error.png)
-[Screenshot](screenshots/Screenshot 50 — NGHDL Fixed Installation Success.png)
-[Screenshot](screenshots/Screenshot_52_NGHDL_Installation_Success.png)
+[Screenshot](<screenshots/Screenshot 44 - NGHDL script backup.png>)
+[Screenshot](<screenshots/Screenshot 45 - NGHDL install path function.png>)
+[Screenshot](<screenshots/Screenshot 46 — NGHDL path fix.png>)
+[Screenshot](<screenshots/Screenshot 47 — NGHDL installed, post-install path error.png>)
+[Screenshot](<screenshots/Screenshot 50 — NGHDL Fixed Installation Success.png>)
+[Screenshot](<screenshots/Screenshot_52_NGHDL_Installation_Success.png>)
 
 Relevant logs:
 
@@ -736,9 +723,9 @@ The final installation logs also recorded successful soft-link creation for Ngsp
 
 ## Evidence
 
-[Screenshot](screenshots/Screenshot 48 — NGSpice Path Fix Verified.png)
-[Screenshot](screenshots/Screenshot 49 — NGSpice Path Fix Applied.png)
-[Screenshot](screenshots/Screenshot 51 — NGHDL Ngspice Verification.png)
+[Screenshot](<screenshots/Screenshot 48 — NGSpice Path Fix Verified.png>)
+[Screenshot](<screenshots/Screenshot 49 — NGSpice Path Fix Applied.png>)
+[Screenshot](<screenshots/Screenshot 51 — NGHDL Ngspice Verification.png>)
 
 ## Status
 
@@ -818,8 +805,8 @@ which nghdl
 
 ## Final Evidence
 
-[Screenshot](screenshots/Screenshot_54_Final_Verification.png)
-[Screenshot](screenshots/Screenshot_55_Final_eSim_Tool_Verification.png)
+[Screenshot](<screenshots/Screenshot_54_Final_Verification.png>)
+[Screenshot](<screenshots/Screenshot_55_Final_eSim_Tool_Verification.png>)
 
 [log](logsissue3-nghdl-fixed-installation-v2.txt)
 
