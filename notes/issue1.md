@@ -25,7 +25,7 @@ When the installation was started using:
 
 ```bash
 ./install-eSim.sh --install
-````
+```
 
 the installer stopped with:
 
