@@ -67,8 +67,8 @@ The dependency was investigated, fixed, and verified on Ubuntu 25.04.
 - [Screenshot](<screenshots/Screenshot 12 - 25.04 canberra dependency fixed.png>)
 - [Screenshot](<screenshots/Screenshot 13 - 25.04 after fix backup.png>)
 - [Screenshot](<screenshots/Screenshot 15 - libcanberra package verification.png>)
-- [Log](logsissue2-canberra-fixed-installation.txt)
-- [Log](logsissue2-version-check.txt)
+- [Log](logs/issue2-canberra-fixed-installation.txt)
+- [Log](issue2-version-check.txt)
 
 ---
 
@@ -131,11 +131,11 @@ The GHDL source was configured and built using LLVM 18.
 * [Screenshot](<screenshots/Screenshot 32 - GHDL configure with LLVM18 successful.png>)
 * [Screenshot](<screenshots/Screenshot 33 - GHDL LLVM18 build successful.png>)
 * [Screenshot](<screenshots/Screenshot 34 - GHDL LLVM18 installation verification.png>)
-* [Log](logsissue3-llvm18-availability.txt)
-* [Log](logsissue3-llvm18-installed.txt)
-* [Log](logsissue3-llvm-version-proof.txt)
-* [Log](logsissue3-ghdl-llvm18-build.txt)
-* [Log](logsissue3-ghdl-llvm18-install.txt)
+* [Log](logs/issue3-llvm18-availability.txt)
+* [Log](logs/issue3-llvm18-installed.txt)
+* [Log](logs/issue3-llvm-version-proof.txt)
+* [Log](logs/issue3-ghdl-llvm18-build.txt)
+* [Log](logs/issue3-ghdl-llvm18-install.txt)
 
 ---
 
@@ -169,8 +169,8 @@ Verilator 4.210
 * [Screenshot](<screenshots/Screenshot 42 - Verilator path and archive check.png>)
 * [Screenshot](<screenshots/Screenshot 43 - Verilator fixed installation NGHDL error.png>)
 * [Screenshot](<screenshots/Screenshot_53_Verilator_Installation_Success.png>)
-* [Log](logsissue3-verilator-path-check.txt)
-* [Log](logsissue3-verilator-fixed-installation.txt)
+* [Log](logs/issue3-verilator-path-check.txt)
+* [Log](logs/issue3-verilator-fixed-installation.txt)
 
 ---
 
@@ -203,8 +203,8 @@ The final executable was verified at:
 * [Screenshot](<screenshots/Screenshot 47 — NGHDL installed, post-install path error.png>)
 * [Screenshot](<screenshots/Screenshot 50 — NGHDL Fixed Installation Success.png>)
 * [Screenshot](<screenshots/Screenshot_52_NGHDL_Installation_Success.png>)
-* [Log](logsissue3-nghdl-path-fixed-installation.txt)
-* [Log](logsissue3-nghdl-fixed-installation-v2.txt)
+* [Log](logs/issue3-nghdl-path-fixed-installation.txt)
+* [Log](logs/issue3-nghdl-fixed-installation-v2.txt)
 
 ---
 
@@ -303,7 +303,7 @@ which nghdl
 
 * [Screenshot](<screenshots/Screenshot_54_Final_Verification.png>)
 * [Screenshot](<screenshots/Screenshot_55_Final_eSim_Tool_Verification.png>)
-* [Log](logsissue3-nghdl-fixed-installation-v2.txt)
+* [Log](logs/issue3-nghdl-fixed-installation-v2.txt)
 
 ---
 
