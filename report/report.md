@@ -326,23 +326,6 @@ The installation process was able to proceed beyond the original unsupported Ubu
 
 ---
 
-# 10. Evidence
-
-The investigation was supported by screenshots and logs stored in the repository.
-
-## Screenshots
-
-* [Screenshot](<screenshots/Screenshot 1 — Ubuntu version.png>)
-* [Screenshot](<screenshots/Screenshot 2 — VERSION_ID.png>)
-* [Screenshot](<screenshots/Screenshot 3 — Original eSim error.png>)
-* [Screenshot](<screenshots/Screenshot 4 — Original install-eSim.sh.png>)
-* [Screenshot](<screenshots/Screenshot 5 — Updated install-eSim.sh.png>)
-* [Screenshot](<screenshots/Screenshot 6 — 25.04 script present.png>)
-* [Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
-* [Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
-
-
----
 
 # 11. Result
 
@@ -409,7 +392,7 @@ eSim-Task4/
 │
 ├── report/
 │   ├── report.md
-│   └── report.pdf
+│   └── eSim Semester Long Internship - Autumn 2026 Submission Task 4.pdf
 │
 ├── screenshots/
 │   ├── Original errors
