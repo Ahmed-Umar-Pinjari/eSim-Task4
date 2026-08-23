@@ -341,10 +341,6 @@ The investigation was supported by screenshots and logs stored in the repository
 * [Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
 * [Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
-## Logs
-
-* [Log](logs/issue1-original.txt)
-* [Log](logs/issue1-fixed.txt)
 
 ---
 

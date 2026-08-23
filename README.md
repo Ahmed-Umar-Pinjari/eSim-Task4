@@ -68,8 +68,6 @@ The dependency was investigated, fixed, and verified on Ubuntu 25.04.
 - [Screenshot](<screenshots/Screenshot 13 - 25.04 after fix backup.png>)
 - [Screenshot](<screenshots/Screenshot 15 - libcanberra package verification.png>)
 - [Log](logs/issue2-canberra-fixed-installation.txt)
-- [Log](issue2-version-check.txt)
-
 ---
 
 # Issue 3 — GHDL Installation
@@ -133,7 +131,6 @@ The GHDL source was configured and built using LLVM 18.
 * [Screenshot](<screenshots/Screenshot 34 - GHDL LLVM18 installation verification.png>)
 * [Log](logs/issue3-llvm18-availability.txt)
 * [Log](logs/issue3-llvm18-installed.txt)
-* [Log](logs/issue3-llvm-version-proof.txt)
 * [Log](logs/issue3-ghdl-llvm18-build.txt)
 * [Log](logs/issue3-ghdl-llvm18-install.txt)
 
