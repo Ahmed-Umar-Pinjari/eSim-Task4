@@ -74,7 +74,7 @@ Capture Log + Screenshot
 Proceed to Next Issue
         ↓
 Final Tool Verification
-````
+```
 
 For each issue, the following information was documented:
 
@@ -332,19 +332,19 @@ The investigation was supported by screenshots and logs stored in the repository
 
 ## Screenshots
 
-* [Screenshot 1 — Ubuntu version](<screenshots/screenshot 1 — Ubuntu version.png>)
-* [Screenshot 2 — VERSION_ID](<screenshots/screenshot 2 — VERSION_ID.png>)
-* [Screenshot 3 — Original eSim error](<screenshots/screenshot 3 — Original eSim error.png>)
-* [Screenshot 4 — Original install-eSim.sh](<screenshots/screenshot 4 — Original install-eSim.sh.png>)
-* [Screenshot 5 — Updated install-eSim.sh](<screenshots/screenshot 5 — Updated install-eSim.sh.png>)
-* [Screenshot 6 — 25.04 script present](<screenshots/screenshot 6 — 25.04 script present.png>)
-* [Screenshot 7 — KiCad successfully installed](<screenshots/screenshot 7 — KiCad successfully installed.png>)
-* [Screenshot 8 — KiCad GUI](<screenshots/screenshot 8 — KiCad GUI.png>)
+* [Screenshot](<screenshots/Screenshot 1 — Ubuntu version.png>)
+* [Screenshot](<screenshots/Screenshot 2 — VERSION_ID.png>)
+* [Screenshot](<screenshots/Screenshot 3 — Original eSim error.png>)
+* [Screenshot](<screenshots/Screenshot 4 — Original install-eSim.sh.png>)
+* [Screenshot](<screenshots/Screenshot 5 — Updated install-eSim.sh.png>)
+* [Screenshot](<screenshots/Screenshot 6 — 25.04 script present.png>)
+* [Screenshot](<screenshots/Screenshot 7 — KiCad successfully installed.png>)
+* [Screenshot](<screenshots/Screenshot 8 — KiCad GUI.png>)
 
 ## Logs
 
-* [Original Issue 1 Log](logs/issue1-original.txt)
-* [Fixed Issue 1 Log](logs/issue1-fixed.txt)
+* [Log](logs/issue1-original.txt)
+* [Log](logs/issue1-fixed.txt)
 
 ---
 
@@ -425,3 +425,5 @@ eSim-Task4/
 **Issue 1 — Ubuntu 25.04 Compatibility: FIXED**
 
 The issue was reproduced, investigated, root-caused, fixed, and verified with supporting logs and screenshots.
+
+
