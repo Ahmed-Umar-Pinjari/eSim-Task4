@@ -320,10 +320,11 @@ eSim-Task4/
 │   └── Final installation and verification logs
 │
 ├── notes/
-│   └── Issue-specific notes
+│   └── notes.md
 │
 ├── report/
-│   └── installation-issue.md
+│   ├── report.md
+│   └── report.pdf
 │
 ├── screenshots/
 │   ├── Original errors

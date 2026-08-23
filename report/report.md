@@ -395,23 +395,29 @@ The related evidence is organized as follows:
 eSim-Task4/
 │
 ├── fixes/
-│   └── Installation script backups and fixes
+│   ├── Original installation scripts
+│   ├── Backup versions
+│   └── Corrected installation scripts
 │
 ├── logs/
-│   ├── issue1-original.txt
-│   └── issue1-fixed.txt
+│   ├── Original error logs
+│   ├── Intermediate debugging logs
+│   └── Final installation and verification logs
 │
 ├── notes/
-│   └── issue1.md
+│   └── notes.md
 │
 ├── report/
-│   └── installation-issue.md
+│   ├── report.md
+│   └── report.pdf
 │
-└── screenshots/
-    ├── Original installation evidence
-    ├── Investigation evidence
-    ├── Fix evidence
-    └── Verification evidence
+├── screenshots/
+│   ├── Original errors
+│   ├── Fix implementation
+│   ├── Installation verification
+│   └── Final tool verification
+│
+└── README.md
 ```
 
 ---
